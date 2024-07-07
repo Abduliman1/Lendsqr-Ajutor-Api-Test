@@ -20,8 +20,8 @@ Clone this repository to your local machine using the following command:
 ```sh
 git clone https://github.com/your-username/api-test-scripts.git
 cd api-test-scripts
----
-Importing the Postman Collection
+
+# Importing the Postman Collection
 Open Postman.
 Click on "Import" in the top-left corner.
 Select the Authentication Tests.postman_collection.json file from the cloned repository folder.
@@ -89,22 +89,3 @@ Notes
 The tests were executed successfully, and detailed logs are available in Postman for review. Screenshots and additional logs can be attached if needed.
 
 For any questions or issues, please open an issue in this repository or contact the repository maintainer.
-
-### Steps to Add and Commit the README.md
-
-1. Create the `README.md` file in your repository folder:
-   ```sh
-   touch README.md
-Open the file in a text editor and paste the content provided above.
-
-Save the file and add it to your git staging area:
-git add README.md
-Commit the new file:
-git commit -m "Add README.md with setup instructions and test results summary"
-Push the changes to GitHub:
-git push origin master
-Verify on GitHub
-Go to your GitHub repository and verify that the README.md file has been added and contains the correct information.
-
-Submission
-Include a link to your GitHub repository in your submission document, indicating that the setup instructions, test scripts, and test results summary are all available in the README.md file.
