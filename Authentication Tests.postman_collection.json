@@ -1,0 +1,1706 @@
+{
+	"info": {
+		"_postman_id": "6cced5ad-2627-4698-89d2-3ade55174773",
+		"name": "Authentication Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32040005",
+		"_collection_link": "https://www.postman.com/interstellar-water-616166/workspace/lendsqr-adjutor-sign-up-and-login-test/collection/32040005-6cced5ad-2627-4698-89d2-3ade55174773?action=share&source=collection_link&creator=32040005"
+	},
+	"item": [
+		{
+			"name": "Negative Tests",
+			"item": [
+				{
+					"name": "Sign up - missing full name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validate response structure and values\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData).to.have.all.keys(\"status\", \"code\", \"message\", \"session_id\", \"data\");\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    \r",
+									"    pm.expect(jsonData.message).to.eql(\"Successful\");\r",
+									"    \r",
+									"    pm.expect(jsonData.session_id).to.be.a(\"string\");\r",
+									"    \r",
+									"    pm.expect(jsonData.data).to.be.null;\r",
+									"});\r",
+									"pm.test(\"Validate response status value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    pm.expect(jsonData.status).to.not.be.null;\r",
+									"    \r",
+									"});\r",
+									"pm.test(\"Validate response code value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate response message value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    pm.expect(jsonData.status).to.not.be.null;\r",
+									"    \r",
+									"});\r",
+									"pm.test(\"Validate response session_id value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate response data value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"\",\r\n    \"password\": \"{{password}}\",\r\n    \"email\": \"{{email}}\",\r\n    \"phone_number\": \"{{phone number}}\",\r\n    \"locale\": \"{{locale}}\",\r\n    \"business_name\": \"{{business name}}\",\r\n    \"rc_number\": \"{{rc number}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Sign up baseUrl}}/onboard",
+							"host": [
+								"{{Sign up baseUrl}}"
+							],
+							"path": [
+								"onboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign up - missing email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validate response structure and values\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData).to.have.all.keys(\"status\", \"code\", \"message\", \"session_id\", \"data\");\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    \r",
+									"    pm.expect(jsonData.message).to.eql(\"Successful\");\r",
+									"    \r",
+									"    pm.expect(jsonData.session_id).to.be.a(\"string\");\r",
+									"    \r",
+									"    pm.expect(jsonData.data).to.be.null;\r",
+									"});\r",
+									"pm.test(\"Validate response status value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    pm.expect(jsonData.status).to.not.be.null;\r",
+									"    \r",
+									"});\r",
+									"pm.test(\"Validate response code value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate response message value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    pm.expect(jsonData.status).to.not.be.null;\r",
+									"    \r",
+									"});\r",
+									"pm.test(\"Validate response session_id value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate response data value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{full name}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"email\": \"\",\r\n    \"phone_number\": \"{{phone number}}\",\r\n    \"locale\": \"{{locale}}\",\r\n    \"business_name\": \"{{business name}}\",\r\n    \"rc_number\": \"{{rc number}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Sign up baseUrl}}/onboard",
+							"host": [
+								"{{Sign up baseUrl}}"
+							],
+							"path": [
+								"onboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign up - missing password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validate response structure and values\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData).to.have.all.keys(\"status\", \"code\", \"message\", \"session_id\", \"data\");\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    \r",
+									"    pm.expect(jsonData.message).to.eql(\"Successful\");\r",
+									"    \r",
+									"    pm.expect(jsonData.session_id).to.be.a(\"string\");\r",
+									"    \r",
+									"    pm.expect(jsonData.data).to.be.null;\r",
+									"});\r",
+									"pm.test(\"Validate response status value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    pm.expect(jsonData.status).to.not.be.null;\r",
+									"    \r",
+									"});\r",
+									"pm.test(\"Validate response code value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate response message value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    pm.expect(jsonData.status).to.not.be.null;\r",
+									"    \r",
+									"});\r",
+									"pm.test(\"Validate response session_id value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate response data value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{full name}}\",\r\n    \"password\": \"\",\r\n    \"email\": \"{{email}}\",\r\n    \"phone_number\": \"{{phone number}}\",\r\n    \"locale\": \"{{locale}}\",\r\n    \"business_name\": \"{{business name}}\",\r\n    \"rc_number\": \"{{rc number}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Sign up baseUrl}}/onboard",
+							"host": [
+								"{{Sign up baseUrl}}"
+							],
+							"path": [
+								"onboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign up - missing bussiness_name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validate response structure and values\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData).to.have.all.keys(\"status\", \"code\", \"message\", \"session_id\", \"data\");\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    \r",
+									"    pm.expect(jsonData.message).to.eql(\"Successful\");\r",
+									"    \r",
+									"    pm.expect(jsonData.session_id).to.be.a(\"string\");\r",
+									"    \r",
+									"    pm.expect(jsonData.data).to.be.null;\r",
+									"});\r",
+									"pm.test(\"Validate response status value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    pm.expect(jsonData.status).to.not.be.null;\r",
+									"    \r",
+									"});\r",
+									"pm.test(\"Validate response code value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate response message value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    pm.expect(jsonData.status).to.not.be.null;\r",
+									"    \r",
+									"});\r",
+									"pm.test(\"Validate response session_id value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate response data value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{full name}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"email\": \"{{email}}\",\r\n    \"phone_number\": \"{{phone number}}\",\r\n    \"locale\": \"{{locale}}\",\r\n    \"business_name\": \"\",\r\n    \"rc_number\": \"{{rc number}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Sign up baseUrl}}/onboard",
+							"host": [
+								"{{Sign up baseUrl}}"
+							],
+							"path": [
+								"onboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign up - missing  phone_number",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validate response structure and values\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData).to.have.all.keys(\"status\", \"code\", \"message\", \"session_id\", \"data\");\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    \r",
+									"    pm.expect(jsonData.message).to.eql(\"Successful\");\r",
+									"    \r",
+									"    pm.expect(jsonData.session_id).to.be.a(\"string\");\r",
+									"    \r",
+									"    pm.expect(jsonData.data).to.be.null;\r",
+									"});\r",
+									"pm.test(\"Validate response status value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    pm.expect(jsonData.status).to.not.be.null;\r",
+									"    \r",
+									"});\r",
+									"pm.test(\"Validate response code value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate response message value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    pm.expect(jsonData.status).to.not.be.null;\r",
+									"    \r",
+									"});\r",
+									"pm.test(\"Validate response session_id value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate response data value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{full name}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"email\": \"{{email}}\",\r\n    \"phone_number\": \"\",\r\n    \"locale\": \"{{locale}}\",\r\n    \"business_name\": \"{{business name}}\",\r\n    \"rc_number\": \"{{rc number}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Sign up baseUrl}}/onboard",
+							"host": [
+								"{{Sign up baseUrl}}"
+							],
+							"path": [
+								"onboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign up - missing locale",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validate response structure and values\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData).to.have.all.keys(\"status\", \"code\", \"message\", \"session_id\", \"data\");\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    \r",
+									"    pm.expect(jsonData.message).to.eql(\"Successful\");\r",
+									"    \r",
+									"    pm.expect(jsonData.session_id).to.be.a(\"string\");\r",
+									"    \r",
+									"    pm.expect(jsonData.data).to.be.null;\r",
+									"});\r",
+									"pm.test(\"Validate response status value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    pm.expect(jsonData.status).to.not.be.null;\r",
+									"    \r",
+									"});\r",
+									"pm.test(\"Validate response code value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate response message value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    pm.expect(jsonData.status).to.not.be.null;\r",
+									"    \r",
+									"});\r",
+									"pm.test(\"Validate response session_id value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate response data value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{full name}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"email\": \"{{email}}\",\r\n    \"phone_number\": \"{{phone number}}\",\r\n    \"locale\": \"\",\r\n    \"business_name\": \"{{business name}}\",\r\n    \"rc_number\": \"{{rc number}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Sign up baseUrl}}/onboard",
+							"host": [
+								"{{Sign up baseUrl}}"
+							],
+							"path": [
+								"onboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign up - missing rc_number",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validate response structure and values\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData).to.have.all.keys(\"status\", \"code\", \"message\", \"session_id\", \"data\");\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    \r",
+									"    pm.expect(jsonData.message).to.eql(\"Successful\");\r",
+									"    \r",
+									"    pm.expect(jsonData.session_id).to.be.a(\"string\");\r",
+									"    \r",
+									"    pm.expect(jsonData.data).to.be.null;\r",
+									"});\r",
+									"pm.test(\"Validate response status value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    pm.expect(jsonData.status).to.not.be.null;\r",
+									"    \r",
+									"});\r",
+									"pm.test(\"Validate response code value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate response message value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    pm.expect(jsonData.status).to.not.be.null;\r",
+									"    \r",
+									"});\r",
+									"pm.test(\"Validate response session_id value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate response data value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{full name}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"email\": \"{{email}}\",\r\n    \"phone_number\": \"{{phone number}}\",\r\n    \"locale\": \"{{locale}}\",\r\n    \"business_name\": \"{{business name}}\",\r\n    \"rc_number\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Sign up baseUrl}}/onboard",
+							"host": [
+								"{{Sign up baseUrl}}"
+							],
+							"path": [
+								"onboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - Missing Email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response structure and values\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(jsonData).to.have.all.keys(\"status\", \"code\", \"message\", \"session_id\", \"data\");\r",
+									"\r",
+									"    if (jsonData.message === \"Enter 2FA token to Authenticate\") {\r",
+									"        console.log(\"2FA token required, skipping further checks\");\r",
+									"    } else {\r",
+									"        pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"        pm.expect(jsonData.message).to.eql(\"Successful\");\r",
+									"        pm.expect(jsonData.session_id).to.be.a(\"string\");\r",
+									"        pm.expect(jsonData.data).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response status value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"        pm.expect(jsonData.status).to.not.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response code value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.code).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response message value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"        pm.expect(jsonData.status).to.not.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response session_id value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.code).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response data value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.code).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Api-Key",
+								"value": "P5cuQ6v3lkTdZQzejgeEE0VHcD2sf2xaXTDH1P5R",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors",
+								"type": "text"
+							},
+							{
+								"key": "Source",
+								"value": "YWRqdXRvcg==",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "https://app.adjutor.io/",
+								"type": "text"
+							},
+							{
+								"key": "Priority",
+								"value": "u=1, i",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "https://app.adjutor.io",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"\",\r\n    \"password\": \"{{password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Login BaseUrl}}/login",
+							"host": [
+								"{{Login BaseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - Missing Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response structure and values\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(jsonData).to.have.all.keys(\"status\", \"code\", \"message\", \"session_id\", \"data\");\r",
+									"\r",
+									"    if (jsonData.message === \"Enter 2FA token to Authenticate\") {\r",
+									"        console.log(\"2FA token required, skipping further checks\");\r",
+									"    } else {\r",
+									"        pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"        pm.expect(jsonData.message).to.eql(\"Successful\");\r",
+									"        pm.expect(jsonData.session_id).to.be.a(\"string\");\r",
+									"        pm.expect(jsonData.data).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response status value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"        pm.expect(jsonData.status).to.not.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response code value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.code).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response message value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"        pm.expect(jsonData.status).to.not.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response session_id value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.code).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response data value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.code).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Api-Key",
+								"value": "P5cuQ6v3lkTdZQzejgeEE0VHcD2sf2xaXTDH1P5R",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors",
+								"type": "text"
+							},
+							{
+								"key": "Source",
+								"value": "YWRqdXRvcg==",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "https://app.adjutor.io/",
+								"type": "text"
+							},
+							{
+								"key": "Priority",
+								"value": "u=1, i",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "https://app.adjutor.io",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Login BaseUrl}}/login",
+							"host": [
+								"{{Login BaseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - Invalid Email",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response structure and values\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(jsonData).to.have.all.keys(\"status\", \"code\", \"message\", \"session_id\", \"data\");\r",
+									"\r",
+									"    if (jsonData.message === \"Enter 2FA token to Authenticate\") {\r",
+									"        console.log(\"2FA token required, skipping further checks\");\r",
+									"    } else {\r",
+									"        pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"        pm.expect(jsonData.message).to.eql(\"Successful\");\r",
+									"        pm.expect(jsonData.session_id).to.be.a(\"string\");\r",
+									"        pm.expect(jsonData.data).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response status value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"        pm.expect(jsonData.status).to.not.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response code value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.code).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response message value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"        pm.expect(jsonData.status).to.not.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response session_id value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.code).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response data value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.code).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Api-Key",
+								"value": "P5cuQ6v3lkTdZQzejgeEE0VHcD2sf2xaXTDH1P5R",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors",
+								"type": "text"
+							},
+							{
+								"key": "Source",
+								"value": "YWRqdXRvcg==",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "https://app.adjutor.io/",
+								"type": "text"
+							},
+							{
+								"key": "Priority",
+								"value": "u=1, i",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "https://app.adjutor.io",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"Abduliman314.com\",\r\n    \"password\": \"{{password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Login BaseUrl}}/login",
+							"host": [
+								"{{Login BaseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - Invalid Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response structure and values\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(jsonData).to.have.all.keys(\"status\", \"code\", \"message\", \"session_id\", \"data\");\r",
+									"\r",
+									"    if (jsonData.message === \"Enter 2FA token to Authenticate\") {\r",
+									"        console.log(\"2FA token required, skipping further checks\");\r",
+									"    } else {\r",
+									"        pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"        pm.expect(jsonData.message).to.eql(\"Successful\");\r",
+									"        pm.expect(jsonData.session_id).to.be.a(\"string\");\r",
+									"        pm.expect(jsonData.data).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response status value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"        pm.expect(jsonData.status).to.not.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response code value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.code).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response message value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"        pm.expect(jsonData.status).to.not.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response session_id value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.code).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response data value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.code).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Api-Key",
+								"value": "P5cuQ6v3lkTdZQzejgeEE0VHcD2sf2xaXTDH1P5R",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors",
+								"type": "text"
+							},
+							{
+								"key": "Source",
+								"value": "YWRqdXRvcg==",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "https://app.adjutor.io/",
+								"type": "text"
+							},
+							{
+								"key": "Priority",
+								"value": "u=1, i",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "https://app.adjutor.io",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"Happymoment1@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Login BaseUrl}}/login",
+							"host": [
+								"{{Login BaseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login - Missing Email and Password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response structure and values\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(jsonData).to.have.all.keys(\"status\", \"code\", \"message\", \"session_id\", \"data\");\r",
+									"\r",
+									"    if (jsonData.message === \"Enter 2FA token to Authenticate\") {\r",
+									"        console.log(\"2FA token required, skipping further checks\");\r",
+									"    } else {\r",
+									"        pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"        pm.expect(jsonData.message).to.eql(\"Successful\");\r",
+									"        pm.expect(jsonData.session_id).to.be.a(\"string\");\r",
+									"        pm.expect(jsonData.data).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response status value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"        pm.expect(jsonData.status).to.not.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response code value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.code).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response message value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"        pm.expect(jsonData.status).to.not.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response session_id value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.code).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response data value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.code).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Api-Key",
+								"value": "P5cuQ6v3lkTdZQzejgeEE0VHcD2sf2xaXTDH1P5R",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors",
+								"type": "text"
+							},
+							{
+								"key": "Source",
+								"value": "YWRqdXRvcg==",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "https://app.adjutor.io/",
+								"type": "text"
+							},
+							{
+								"key": "Priority",
+								"value": "u=1, i",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "https://app.adjutor.io",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"\",\r\n    \"password\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Login BaseUrl}}/login",
+							"host": [
+								"{{Login BaseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Positive Tests",
+			"item": [
+				{
+					"name": "Login - Valid details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response structure and values\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(jsonData).to.have.all.keys(\"status\", \"code\", \"message\", \"session_id\", \"data\");\r",
+									"\r",
+									"    if (jsonData.message === \"Enter 2FA token to Authenticate\") {\r",
+									"        console.log(\"2FA token required, skipping further checks\");\r",
+									"    } else {\r",
+									"        pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"        pm.expect(jsonData.message).to.eql(\"Successful\");\r",
+									"        pm.expect(jsonData.session_id).to.be.a(\"string\");\r",
+									"        pm.expect(jsonData.data).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response status value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"        pm.expect(jsonData.status).to.not.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response code value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.code).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response message value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"        pm.expect(jsonData.status).to.not.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response session_id value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.code).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate response data value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    if (jsonData.message !== \"Enter 2FA token to Authenticate\") {\r",
+									"        pm.expect(jsonData.code).to.be.null;\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true,
+							"user-agent": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Api-Key",
+								"value": "P5cuQ6v3lkTdZQzejgeEE0VHcD2sf2xaXTDH1P5R",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors",
+								"type": "text"
+							},
+							{
+								"key": "Source",
+								"value": "YWRqdXRvcg==",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "https://app.adjutor.io/",
+								"type": "text"
+							},
+							{
+								"key": "Priority",
+								"value": "u=1, i",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "https://app.adjutor.io",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"{{email}}\",\r\n    \"password\": \"{{password}}\"\r\n}"
+						},
+						"url": {
+							"raw": "{{Login BaseUrl}}/login",
+							"host": [
+								"{{Login BaseUrl}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign up - valid details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Validate response structure and values\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData).to.have.all.keys(\"status\", \"code\", \"message\", \"session_id\", \"data\");\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    \r",
+									"    pm.expect(jsonData.message).to.eql(\"Successful\");\r",
+									"    \r",
+									"    pm.expect(jsonData.session_id).to.be.a(\"string\");\r",
+									"    \r",
+									"    pm.expect(jsonData.data).to.be.null;\r",
+									"});\r",
+									"pm.test(\"Validate response status value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    pm.expect(jsonData.status).to.not.be.null;\r",
+									"    \r",
+									"});\r",
+									"pm.test(\"Validate response code value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate response message value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.status).to.eql(\"success\");\r",
+									"    pm.expect(jsonData.status).to.not.be.null;\r",
+									"    \r",
+									"});\r",
+									"pm.test(\"Validate response session_id value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate response data value\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.code).to.be.null;\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"host": true,
+							"user-agent": true,
+							"content-length": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Api-Key",
+								"value": "P5cuQ6v3lkTdZQzejgeEE0VHcD2sf2xaXTDH1P5R",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br, zstd",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors",
+								"type": "text"
+							},
+							{
+								"key": "Source",
+								"value": "YWRqdXRvcg==",
+								"type": "text"
+							},
+							{
+								"key": "Referer",
+								"value": "https://app.adjutor.io/",
+								"type": "text"
+							},
+							{
+								"key": "Priority",
+								"value": "u=1, i",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "https://app.adjutor.io",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{full name}}\",\r\n    \"password\": \"{{password}}\",\r\n    \"email\": \"{{email}}\",\r\n    \"phone_number\": \"{{phone number}}\",\r\n    \"locale\": \"{{locale}}\",\r\n    \"business_name\": \"{{business name}}\",\r\n    \"rc_number\": \"{{rc number}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Sign up baseUrl}}/onboard",
+							"host": [
+								"{{Sign up baseUrl}}"
+							],
+							"path": [
+								"onboard"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
