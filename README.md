@@ -81,4 +81,50 @@ The collection includes the following test cases:
 - **Description**: Tests if login fails when both email and password are missing.
 - **Status**: Failed
 ## Notes
-The tests were executed successfully and detailed logs are available in Postman for review. Screenshots and additional logs can be attached if needed.
+The tests were executed successfully, and detailed logs are available in Postman for review. Screenshots and additional logs can be attached if needed.
+For any questions or issues, please open an issue in this repository or contact the repository maintainer.
+## Steps to Add and Commit the README.md
+1. Create the `README.md` file in your repository folder:
+   ```sh
+   touch README.md
+   ```
+2. Open the file in a text editor and paste the content provided above.
+3. Save the file and add it to your git staging area:
+   ```sh
+   git add README.md
+   ```
+4. Commit the new file:
+   ```sh
+   git commit -m "Add README.md with setup instructions and test results summary"
+   ```
+5. Push the changes to GitHub:
+   ```sh
+   git push origin master
+   ```
+## Verify on GitHub
+Go to your GitHub repository and verify that the README.md file has been added and contains the correct information.
+## Submission
+Include a link to your GitHub repository in your submission document, indicating that the setup instructions, test scripts, and test results summary are all available in the README.md file.
+```
+### Instructions to Add and Commit the README.md
+1. Create the `README.md` file in your repository folder:
+   ```sh
+   touch README.md
+   ```
+2. Open the file in a text editor and paste the content provided above.
+3. Save the file and add it to your git staging area:
+   ```sh
+   git add README.md
+   ```
+4. Commit the new file:
+   ```sh
+   git commit -m "Add README.md with setup instructions and test results summary"
+   ```
+5. Push the changes to GitHub:
+   ```sh
+   git push origin master
+   ```
+### Verify on GitHub
+Go to your GitHub repository and verify that the `README.md` file has been added and contains the correct information.
+### Submission
+Include a link to your GitHub repository in your submission document, indicating that the setup instructions, test scripts, and test results summary are all available in the `README.md` file.
